@@ -148,6 +148,7 @@ def opt_2():
     os.system("pkg install nodejs-lts -y")
     os.system("pkg install wget -y")
     os.system("pkg install hydra -y")
+    clear()
     if lang == "en":
         print("\nAll installed, now you can install many patch for hacking\n")
     if lang == "ru":
@@ -168,6 +169,7 @@ def opt_3():
     os.system("pkg install ruby -y")
     os.system("pkg install wget -y")
     os.system("pkg install hydra -y")
+    clear()
     if lang == "en":
         print("\nAll installed, now you can install many patch for hacking\n")
     if lang == "ru":
@@ -192,14 +194,15 @@ def opt_4():
             incorrect()
 
 def secret_opt():
+    os.system("pkg install git -y")
     clear()
     if lang == "en":
-        print("\nYou open secret panel. Congratulations!\n")
+        print("\nYou opened secret panel. Congratulations!\n")
         print("What do you want to do " + username.title() + "?\n")
     if lang == "ru":
         print("Ты открыл секретную панель. Поздравляю!")
         print("Ну так что ты хочешь сделать "  +username.title() + "?\n")
-    os.system("pkg install git -y")
+    time.sleep(2)
     while True:
         clear()
         print("1 - SellPhish\n2 - InstagramBrute\n3 - Xerxes\n4 - IPGeoLocation\n5 - Toolss")
@@ -269,6 +272,7 @@ def check_status():
             opt_4()
             print_options()
         elif what_need == "5":
+            clear()
             print(what_new)
             print_options()
         elif what_need == "0":
