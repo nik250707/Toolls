@@ -1,9 +1,9 @@
 #info
-version = "0.6 beta"
-plan = "Fix all bugs and add functional to 1st option"
+version = "0.7 beta"
+plan = "Fix all bugs"
 
 #What's new:
-what_new = "\nAdded color and some fixes"
+what_new = "\nAdded root progs"
 
 #import
 import os
@@ -132,10 +132,18 @@ def opt_1():
     '''using 1st option'''
     global easter
     easter += 1
+    os.system("pkg update -y && pkg upgrade -y")
+    os.system("pkg install git - y")
+    os.system("git clone https://gitlab.com/st42/termux-sudo.git")
+    os.system("pkg install ncurses-utils -y")
+    os.system("cd termux-sudo")
+    os.system("cat sudo > /data/data/com.termux/files/usr/bin/sudo")
+    os.system("chmod 700 /data/data/com.termux/files/usr/bin/sudo")
+    clear()
     if lang == "en":
-        print("\nNo data yet\n")
+        print("\nSudo был установлен. Использование: sudo su")
     if lang == "ru":
-        print("\nПока ничего нет\n")
+        print("\nSudo was installed. Usage: sudo su")
 
 def opt_2():
     '''using 2nd option'''
