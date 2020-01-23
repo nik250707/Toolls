@@ -133,17 +133,12 @@ def opt_1():
     global easter
     easter += 1
     os.system("pkg update -y && pkg upgrade -y")
-    os.system("pkg install git - y")
-    os.system("git clone https://gitlab.com/st42/termux-sudo.git")
-    os.system("pkg install ncurses-utils -y")
-    os.system("cd termux-sudo")
-    os.system("cat sudo > /data/data/com.termux/files/usr/bin/sudo")
-    os.system("chmod 700 /data/data/com.termux/files/usr/bin/sudo")
+    os.system("pkg install tsu -y")
     clear()
     if lang == "en":
-        print("\nSudo был установлен. Использование: sudo su")
+        print("\nTsu был установлен. Использование: tsu")
     if lang == "ru":
-        print("\nSudo was installed. Usage: sudo su")
+        print("\nTsu was installed. Usage: tsu")
 
 def opt_2():
     '''using 2nd option'''
