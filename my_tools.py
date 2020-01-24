@@ -135,10 +135,10 @@ def opt_1():
     os.system("pkg update -y && pkg upgrade -y")
     os.system("pkg install tsu -y")
     clear()
-    if lang == "ru":
-        print("\nTsu был установлен. Использование: tsu")
     if lang == "en":
         print("\nTsu was installed. Usage: tsu")
+    if lang == "ru":
+        print("\nTsu был установлен. Использование: tsu")
 
 def opt_2():
     '''using 2nd option'''
