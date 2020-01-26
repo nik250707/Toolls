@@ -189,8 +189,10 @@ def opt_4():
             print("Выберете язык \n 1 - Python\n 2 - JavaScript\n 0 - выход")
         language = input("#     ")
         if language == "1":
+            clear()
             print("\nhttps://drive.google.com/file/d/13ln9fLqFtDghHhdjEgGVyxblNusCdv6y/view\n")
         elif language == "2":
+            clear()
             print("\nhttps://learn.javascript.run\n")
         elif language == "0":
             clear()
@@ -250,7 +252,7 @@ def incorrect():
     if lang == "en":
         print(colored("\nIncorrect, try again\n", "red"))
     if lang == "ru":
-        print(colored("\nНе корректно корректно, попробуйте ещё\n", "red"))
+        print(colored("\nНе корректно, попробуйте ещё\n", "red"))
 
 def check_status():
     '''checking status of work'''
