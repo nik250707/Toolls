@@ -143,6 +143,7 @@ def opt_1():
 def opt_2():
     '''using 2nd option'''
     global easter
+    easter += 2
     os.system("pkg update -y && pkg upgrade -y")
     os.system("pkg install git -y")
     os.system("pkg install python -y")
@@ -156,7 +157,6 @@ def opt_2():
         print("\nAll installed, now you can install many patch for hacking\n")
     if lang == "ru":
         print("\nВсё установленно, теперь можете установить что-нибудь ещё\n")
-    easter += 2
 
 def opt_3():
     '''using 3rd option'''
@@ -180,6 +180,8 @@ def opt_3():
 
 def opt_4():
     '''using 4th option'''
+    global easter
+    easter += 15
     while True:
         if lang == "en":
             print("Select language please \n 1 - Python\n 2 - JavaScript\n 0 - exit")
