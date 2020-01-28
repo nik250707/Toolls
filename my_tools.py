@@ -23,12 +23,14 @@ except ModuleNotFoundError:
 
 #functions
 def clear():
+    '''clear screen'''
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
 
 def load_data():
+    '''load data from file'''
     global new_user
     f_name = "data.json"
     try:
@@ -44,6 +46,7 @@ def load_data():
         new_user = True
 
 def save_data():
+    '''save data to file'''
     global easter
     global username
     data = {"easter": easter, "username": username}
@@ -52,6 +55,7 @@ def save_data():
         json.dump(data, file)
 
 def create_user():
+    '''create new user'''
     global username
     if lang == "en":
         username = input("What's your name? ")
@@ -60,6 +64,7 @@ def create_user():
     clear()
 
 def greet_user():
+    '''greet user'''
     while True:
         if lang == "en":
             print(colored("Welcome back ", "green") + colored(username.title(), "green") + colored("!", "green"))
@@ -82,7 +87,7 @@ def greet_user():
             incorrect()
 
 def sel_lang():
-    '''selecting language'''
+    '''select language'''
     while True:
         global lang
         print("select language/выберете язык")
@@ -101,7 +106,7 @@ def sel_lang():
         break
 
 def print_name():
-    '''printing name'''
+    '''print name'''
     print("         ╔╦╗┌─┐┌─┐┬  ┌─┐")
     print("          ║ │ ││ ││  └─┐")
     print("          ╩ └─┘└─┘┴─┘└─┘")
@@ -109,7 +114,7 @@ def print_name():
     print("\n\n")
 
 def print_options():
-    '''printing available options'''
+    '''print available options'''
     global easter
     if lang == "en":
         print("\n1 - ROOT(need Root)")
@@ -201,6 +206,7 @@ def opt_4():
             incorrect()
 
 def secret_opt():
+    '''using secret panel'''
     os.system("pkg install git -y")
     clear()
     if lang == "en":
@@ -247,7 +253,7 @@ def secret_opt():
             incorrect()
 
 def incorrect():
-    '''printing icorrect message'''
+    '''print icorrect message'''
     clear()
     if lang == "en":
         print(colored("\nIncorrect, try again\n", "red"))
@@ -255,7 +261,7 @@ def incorrect():
         print(colored("\nНе корректно, попробуйте ещё\n", "red"))
 
 def check_status():
-    '''checking status of work'''
+    '''check status of work'''
     global easter
     while True:
         if lang == "en":
@@ -297,7 +303,7 @@ def check_status():
             print_options()
 
 def ending():
-    '''printing final message'''
+    '''print final message'''
     save_data()
     clear()
     if lang == "en":
@@ -311,6 +317,7 @@ def ending():
     sys.exit()
 
 def runing():
+    '''main function, run everything'''
     global easter
     global new_user
     easter = 0
