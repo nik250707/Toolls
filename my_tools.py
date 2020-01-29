@@ -111,6 +111,7 @@ def print_name():
     print("          ║ │ ││ ││  └─┐")
     print("          ╩ └─┘└─┘┴─┘└─┘")
     print(colored("      made by: blnot and FYTUN", "green"))
+    print(colored("\nhttps://discord.gg/HASHUKW", "green"))
     print("\n\n")
 
 def print_options():
@@ -312,6 +313,7 @@ def ending():
         print(Fore.GREEN + "\nДо свидания " + username.title() + "!")
     time.sleep(1)
     print("\nMaked by blnot and FYTUN")
+    print(colored("\nhttps://discord.gg/HASHUKW", "green"))
     if easter >= 10:
         print(colored("\nEaster is unlocked!", "red"))
     sys.exit()
@@ -340,6 +342,7 @@ def runing():
             print(Fore.GREEN + "\nGoodbye!")
             time.sleep(1)
             print(Fore.GREEN + "\nMaked by blnot and FYTUN")
+            print(colored("\nhttps://discord.gg/HASHUKW", "green"))
             sys.exit()
         else:
             ending()
