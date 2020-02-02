@@ -293,7 +293,7 @@ def check_status():
             clear()
             ending()
         elif what_need == "10":
-            if easter >= 9:
+            if easter >= 10:
                 secret_opt()
                 print_options()
             else:
