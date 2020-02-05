@@ -151,7 +151,6 @@ def opt_2():
     global easter
     easter += 2
     os.system("pkg update -y && pkg upgrade -y")
-    os.system("pkg install git -y")
     os.system("pkg install python -y")
     os.system("pkg install ruby -y")
     os.system("pkg install python2 -y && pkg install python3 -y")
@@ -169,7 +168,6 @@ def opt_3():
     global easter
     easter += 3
     os.system("pkg update -y && pkg upgrade -y")
-    os.system("pkg install git -y")
     os.system("pkg install python -y")
     os.system("pkg install ruby -y")
     os.system("pkg install python2 -y && pkg install python3 -y")
@@ -208,7 +206,6 @@ def opt_4():
 
 def secret_opt():
     '''using secret panel'''
-    os.system("pkg install git -y")
     clear()
     if lang == "en":
         print("\nYou opened secret panel. Congratulations!\n")
@@ -324,6 +321,7 @@ def runing():
     global new_user
     easter = 0
     colorama.init()
+    os.system("pkg install git -y")
     clear()
     try:
         sel_lang()
