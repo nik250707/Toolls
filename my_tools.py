@@ -52,7 +52,10 @@ def save_data():
     global easter
     global username
     global debug
-    data = {"easter": easter, "username": username, "debug": debug}
+    try:
+        data = {"easter": easter, "username": username, "debug": debug}
+    except Exception:
+        data = {"easter": easter, "username": username, "debug": "False"}
     f_name = "data.json"
     with open(f_name, "w") as file:
         json.dump(data, file)
@@ -354,8 +357,22 @@ def simple_run():
             print(Fore.GREEN + "\nMaked by blnot and FYTUN")
             print(colored("\nhttps://discord.gg/HASHUKW", "green"))
             sys.exit()
+        elif lang == "en":
+            clear()
+            print(Fore.GREEN + "\nGoodbye!")
+            time.sleep(1)
+            print(Fore.GREEN + "\nMaked by blnot and FYTUN")
+            print(colored("\nhttps://discord.gg/HASHUKW", "green"))
+            sys.exit()
         else:
-            ending()
+            clear()
+            print(Fore.GREEN + "\nДо свидания!")
+            time.sleep(1)
+            print("\nMaked by blnot and FYTUN")
+            print(colored("\nhttps://discord.gg/HASHUKW", "green"))
+            if easter >= 10:
+                print(colored("\nEaster is unlocked!", "red"))
+            sys.exit()
     except Exception:
         print(colored("\nError\n", "red"))
         sys.exit()
@@ -383,10 +400,10 @@ def run():
     try:
         if debug == "True":
             debug_run()
-        elif debug == "False":
+        else:
             simple_run()
     except Exception:
-        pass
+        simple_run()
 
 #start
 run()
