@@ -39,8 +39,10 @@ def load_data():
             data = json.load(file)
             global easter
             global username
+            global debug
             easter = data["easter"]
             username = data["username"]
+            debug = data['debug']
             new_user = False
     except FileNotFoundError:
         new_user = True
@@ -49,7 +51,8 @@ def save_data():
     '''save data to file'''
     global easter
     global username
-    data = {"easter": easter, "username": username}
+    global debug
+    data = {"easter": easter, "username": username, "debug": debug}
     f_name = "data.json"
     with open(f_name, "w") as file:
         json.dump(data, file)
@@ -204,8 +207,16 @@ def opt_4():
         else:
             incorrect()
 
+def opt_contact():
+    if lang == "en":
+        print("Contact us")
+    if lang == "ru":
+        print("Связь с нами")
+    print(colored("Discord \nhttps://discord.gg/HASHUKW", "green"))
+
 def secret_opt():
     '''using secret panel'''
+    global debug
     clear()
     if lang == "en":
         print("\nYou opened secret panel. Congratulations!\n")
@@ -237,6 +248,10 @@ def secret_opt():
         elif what_need == "0":
             clear()
             break
+        elif what_need == "debug_on":
+            debug = "True"
+        elif what_need == "debug_off":
+            debug = "False"
         elif what_need == "999":
             if easter >= 15:
                 clear()
@@ -286,6 +301,10 @@ def check_status():
             clear()
             print(what_new)
             print_options()
+        elif what_need == "6":
+            clear()
+            opt_contact()
+            print_options()
         elif what_need == "0":
             clear()
             ending()
@@ -315,17 +334,10 @@ def ending():
         print(colored("\nEaster is unlocked!", "red"))
     sys.exit()
 
-def runing():
-    '''main function, run everything'''
-    global easter
-    global new_user
-    easter = 0
-    colorama.init()
-    os.system("pkg install git -y")
-    clear()
+def simple_run():
+    '''simple execute programm'''
     try:
         sel_lang()
-        load_data()
         if new_user == False:
             greet_user()
         elif new_user == True:
@@ -348,5 +360,33 @@ def runing():
         print(colored("\nError\n", "red"))
         sys.exit()
 
+def debug_run():
+    sel_lang()
+    if new_user == False:
+        greet_user()
+    elif new_user == True:
+        create_user()
+    print_name()
+    print_options()
+    check_status()
+    ending()
+
+def run():
+    global easter
+    global new_user
+    global debug
+    easter = 0
+    colorama.init()
+    os.system("pkg install git -y")
+    clear()
+    load_data()
+    try:
+        if debug == "True":
+            debug_run()
+        elif debug == "False":
+            simple_run()
+    except Exception:
+        pass
+
 #start
-runing()
+run()
