@@ -129,6 +129,7 @@ def print_options():
         print("3 - Newbie Hacker :D")
         print("4 - Learn languages")
         print("5 - What's new")
+        print("6 - Contact us")
         print("0 - Exit")
     if lang == "ru":
         print("\n1 - ROOT(нужны рут права)")
@@ -136,6 +137,7 @@ def print_options():
         print("3 - Новичок :D")
         print("4 - Изучение языков")
         print("5 - Что нового")
+        print("6 - Связь с нами")
         print("0 - Выход")
     if easter >= 10:
         print(colored("\n10 - Secret panel\n", "green"))
