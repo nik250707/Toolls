@@ -1,25 +1,26 @@
 #info
 version = "0.7 beta"
 plan = "Fix all bugs"
-
-#What's new:
-what_new = "\nAdded root progs"
+whats_new = "\nAdded root progs"
 
 #import
 import os
 import sys
 import time
 import json
-try:
-    import colorama
-    from termcolor import colored, cprint
-    from colorama import Fore, Style
-except ModuleNotFoundError:
-    os.system("pip install colorama")
-    os.system("pip install termcolor")
-    import colorama
-    from termcolor import colored, cprint
-    from colorama import Fore, Style
+while True:
+    try:
+        import colorama
+        from termcolor import colored, cprint
+        from colorama import Fore, Style
+        break
+    except ModuleNotFoundError:
+        os.system("pip install colorama")
+        os.system("pip install termcolor")
+        import colorama
+        from termcolor import colored, cprint
+        from colorama import Fore, Style
+        break
 
 #functions
 def clear():
@@ -199,14 +200,14 @@ def opt_4():
             print("Select language please \n 1 - Python\n 2 - JavaScript\n 0 - exit")
         if lang == "ru":
             print("Выберете язык \n 1 - Python\n 2 - JavaScript\n 0 - выход")
-        language = input("#     ")
-        if language == "1":
+        selected_lang = input("#     ")
+        if selected_lang == "1":
             clear()
             print("\nhttps://drive.google.com/file/d/13ln9fLqFtDghHhdjEgGVyxblNusCdv6y/view\n")
-        elif language == "2":
+        elif selected_lang == "2":
             clear()
             print("\nhttps://learn.javascript.run\n")
-        elif language == "0":
+        elif selected_lang == "0":
             clear()
             break
         else:
@@ -222,16 +223,14 @@ def opt_contact():
 def secret_opt():
     '''using secret panel'''
     global debug
-    clear()
-    if lang == "en":
-        print("\nYou opened secret panel. Congratulations!\n")
-        print("What do you want to do " + username.title() + "?\n")
-    if lang == "ru":
-        print("Ты открыл секретную панель. Поздравляю!")
-        print("Ну так что ты хочешь сделать "  +username.title() + "?\n")
-    time.sleep(2)
     while True:
         clear()
+        if lang == "en":
+            print("\nYou opened secret panel. Congratulations!\n")
+            print("What do you want to do " + username.title() + "?\n")
+        if lang == "ru":
+            print("Ты открыл секретную панель. Поздравляю!")
+            print("Ну так что ты хочешь сделать "  +username.title() + "?\n")
         print("1 - SellPhish\n2 - InstagramBrute\n3 - Xerxes\n4 - IPGeoLocation\n5 - Toolss")
         if lang == "en":
             print("0 - Exit\n")
@@ -267,8 +266,10 @@ def secret_opt():
                 time.sleep(3)
             else:
                 incorrect()
+                time.sleep(3)
         else:
             incorrect()
+            time.sleep(3)
 
 def incorrect():
     '''print icorrect message'''
@@ -304,7 +305,7 @@ def check_status():
             print_options()
         elif what_need == "5":
             clear()
-            print(what_new)
+            print(whats_new)
             print_options()
         elif what_need == "6":
             clear()
@@ -352,6 +353,10 @@ def simple_run():
         check_status()
         ending()
     except KeyboardInterrupt:
+        try:
+            save_data()
+        except Exception:
+            pass
         if lang == "":
             clear()
             print(Fore.GREEN + "\nGoodbye!")
@@ -370,10 +375,8 @@ def simple_run():
             clear()
             print(Fore.GREEN + "\nДо свидания!")
             time.sleep(1)
-            print("\nMaked by blnot and FYTUN")
+            print(Fore.GREEN + "\nMaked by blnot and FYTUN")
             print(colored("\nhttps://discord.gg/HASHUKW", "green"))
-            if easter >= 10:
-                print(colored("\nEaster is unlocked!", "red"))
             sys.exit()
     except Exception:
         print(colored("\nError\n", "red"))
