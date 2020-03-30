@@ -1,7 +1,7 @@
 #info
 version = "0.8"
 plan = "Get release"
-whats_new = "\nAdded root progs"
+whats_new = "\nSome fixes"
 
 #import
 import os
