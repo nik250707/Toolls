@@ -1,5 +1,5 @@
 #info
-version = "0.7 beta"
+version = "0.8 beta"
 plan = "Fix all bugs"
 whats_new = "\nAdded root progs"
 
