@@ -1,6 +1,6 @@
 #info
 version = "0.8"
-plan = "Fix all bugs"
+plan = "Get release"
 whats_new = "\nAdded root progs"
 
 #import
