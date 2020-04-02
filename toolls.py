@@ -214,6 +214,7 @@ def opt_4():
             incorrect()
 
 def opt_contact():
+    '''print contact data'''
     if lang == "en":
         print("Contact us")
     if lang == "ru":
@@ -381,6 +382,7 @@ def simple_run():
         sys.exit()
 
 def debug_run():
+    '''debug execute programm'''
     sel_lang()
     if new_user == False:
         greet_user()
@@ -392,6 +394,7 @@ def debug_run():
     ending()
 
 def run():
+    '''run programm'''
     global easter
     global new_user
     global debug
